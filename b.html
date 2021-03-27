@@ -91,21 +91,28 @@
                 </div>
             </form>
         </div>
-        <iframe src="http://192.168.1.199:8000/" width="100%" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px"></iframe>
+        <div id="x-body">
+            <iframe src="https://vnexpress.net/" width="100%" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px"></iframe>
+        </div>
     </body>
     <script>
         //Hide show Controls
-document.getElementById('hma-top-hide').addEventListener('click', function (e) {
-    document.getElementById('hma-top').classList.add('-hidden');
-    localStorage.hmaTopHidden = 'true';
-}, false);
-document.getElementById('hma-top-show').addEventListener('click', function (e) {
-    document.getElementById('hma-top').classList.remove('-hidden');
-    localStorage.hmaTopHidden = 'false';
-}, false);
-//Restore show/hidden state from storage
-if (localStorage.hmaTopHidden === 'true') {
-    document.getElementById('hma-top').classList.add('-hidden');
-}
+        document.getElementById('hma-top-hide').addEventListener('click', function (e) {
+            document.getElementById('hma-top').classList.add('-hidden');
+            document.getElementById('x-body').classList.remove('m-top');
+            localStorage.hmaTopHidden = 'true';
+        }, false);
+        document.getElementById('hma-top-show').addEventListener('click', function (e) {
+            document.getElementById('hma-top').classList.remove('-hidden');
+            document.getElementById('x-body').classList.add('m-top');
+            localStorage.hmaTopHidden = 'false';
+        }, false);
+        //Restore show/hidden state from storage
+        if (localStorage.hmaTopHidden === 'true') {
+            document.getElementById('hma-top').classList.add('-hidden');
+            document.getElementById('x-body').classList.remove('m-top');
+        } else {
+            document.getElementById('x-body').classList.add('m-top');
+        }
     </script>
 </html>

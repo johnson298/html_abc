@@ -54,7 +54,17 @@
     display: block;
     transition: top .3s;
   }
-  
+  #x-body {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #x-body.m-top{
+    margin-top: 60px;
+    height: calc(100% - 60px);
+}
   .hma-top-inner {
     display: table;
     max-width: 1260px;
